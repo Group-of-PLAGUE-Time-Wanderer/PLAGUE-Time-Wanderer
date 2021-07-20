@@ -1,0 +1,5 @@
+
+terminal:
+  # This can be any image that has the necessary runtime environment for your project.
+  image: node:10-alpine
+  script: bash
