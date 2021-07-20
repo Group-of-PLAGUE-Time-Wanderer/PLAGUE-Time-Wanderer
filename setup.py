@@ -38,7 +38,10 @@ def detect_python():
     sys.exit(1)
 
 def install():
-    print("Détection de l'installation python..", end=" ")
+    print("Détection de l'installation python...", end=" ")
+    python = detect_python()
+    print("Terminé.")
+    print("Détection de l'installateur de paquets...")
 
 installed_packages = get_installed_packages()
 missing_packages = get_missing_packages(installed_packages)
@@ -55,7 +58,7 @@ if not answer or answer.lower() in ("o", "oui"):
 elif answer.lower() in ("n", "non"):
     answer = False
 else:
-    print("Réponse invalide. Annulation.")
+    print("Réponse invalide. Annulation...")
     answer = False
 
 if not answer:
