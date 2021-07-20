@@ -11,6 +11,9 @@ from pygame.locals import *
 pygame.init()
 
 window = pygame.display.set_mode((500, 500))
+pygame.display.set_caption("Jeu vidéo")
+icon = pygame.image.load("images/icon.png")
+pygame.display.set_icon(icon)
 
 main_loop = True
 
