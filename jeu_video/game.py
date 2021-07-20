@@ -15,4 +15,6 @@ window = pygame.display.set_mode((500, 500))
 main_loop = True
 
 while main_loop:
-	continue
+	for event in pygame.event.get():
+		if event.type == QUIT:
+			main_loop = False
