@@ -11,3 +11,8 @@ from pygame.locals import *
 pygame.init()
 
 window = pygame.display.set_mode((500, 500))
+
+main_loop = True
+
+while main_loop:
+	continue
