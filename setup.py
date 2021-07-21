@@ -56,7 +56,7 @@ def install():
     print("Détection de l'installation python...", end=" ")
     python = detect_python()
     print("Terminé.")
-    detect_pip()
+    detect_pip(python)
 
 installed_packages = get_installed_packages()
 missing_packages = get_missing_packages(installed_packages)
