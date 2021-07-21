@@ -74,11 +74,12 @@ def install_mods(mods, python):
             print("Terminé.")
     print("Téléchargement terminé. Installation en cours...")
 
-def install():
+def install(missing_packages):
     print("Détection de l'installation python...", end=" ", flush=True)
     python = detect_python()
     print("Terminé.")
     detect_pip(python)
+    install_mods(missing_packages, python)
 
 installed_packages = get_installed_packages()
 missing_packages = get_missing_packages(installed_packages)
@@ -101,4 +102,4 @@ else:
 if not answer:
     print("Installation annulée.")
 else:
-    install()
+    install(missing_packages)
