@@ -27,10 +27,10 @@ def get_missing_packages(installed_packages):
     return module_list
 
 def detect_python():
-    test = os.system("python3 --version")
+    test = os.system("python3 --version > " + os.devnull)
     if test == 0:
         return "python3"
-    test = os.system("py -3 --version")
+    test = os.system("py -3 --version > " + os.devnull)
     if test == 0:
         return "py -3"
     print()
@@ -38,13 +38,13 @@ def detect_python():
     sys.exit(1)
 
 def detect_pip(python):
-    print("Détection de l'installateur de paquets...", end=" ")
-    test = os.system(python + ' -m pip')
+    print("Détection de l'installateur de paquets...", end=" ", flush=True)
+    test = os.system(python + " -m pip > " + os.devnull)
     print("Terminé.")
     if test == 0:
         return
-    print("Installation de l'installateur de paquets...", end=" ")
-    test = os.system(python + " get-pip.py")
+    print("Installation de l'installateur de paquets...", end=" ", flush=True)
+    test = os.system(python + " get-pip.py > " + os.devnull)
     print("Terminé.")
     if test == 0:
         return
@@ -53,7 +53,7 @@ def detect_pip(python):
     sys.exit(1)
 
 def install():
-    print("Détection de l'installation python...", end=" ")
+    print("Détection de l'installation python...", end=" ", flush=True)
     python = detect_python()
     print("Terminé.")
     detect_pip(python)
