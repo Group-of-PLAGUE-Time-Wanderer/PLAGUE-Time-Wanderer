@@ -27,10 +27,10 @@ def get_missing_packages(installed_packages):
     return module_list
 
 def detect_python():
-    test = os.system("python3")
+    test = os.system("python3 --version")
     if test == 0:
         return "python3"
-    test = os.system("py -3")
+    test = os.system("py -3 --version")
     if test == 0:
         return "py -3"
     print()
