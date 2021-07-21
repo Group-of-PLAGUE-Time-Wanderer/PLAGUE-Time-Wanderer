@@ -8,6 +8,7 @@ Installation du jeu vidéo.
 import os
 import sys
 import pkgutil
+import requests
 
 required_modules = ["pygame"]
 
@@ -51,6 +52,27 @@ def detect_pip(python):
     print()
     print("/!\\ Echec de l'installationde pip.")
     sys.exit(1)
+
+def install_mods(mods, python):
+    print("Téléchargement en cours...")
+    for mod in mods:
+        if mod == "pip":
+            print("Téléchargement: https://bootstrap.pypa.io/get-pip.py...", end=" ", flush=True)
+            r = requests.get("https://bootstrap.pypa.io/get-pip.py", stream=True)
+            with open("file_name.pdf", 'wb') as f:
+                f.write(r.read())
+            print("Terminé.")
+        elif mod == "jeu_video":
+            print("Téléchargement: https://gitlab.com/groupe-jeu-vid-o/jeu-video/-/archive/main/jeu-video-main.zip...", end=" ", flush=True)
+            r = requests.get("https://gitlab.com/groupe-jeu-vid-o/jeu-video/-/archive/main/jeu-video-main.zip", stream=True)
+            with open("file_name.pdf", 'wb') as f:
+                f.write(r.read())
+            print("Terminé.")
+        else:
+            print("Téléchargement: https://pypi.org/simple/{0}/...".format(mod), end=" ", flush=True)
+            os.system(python + " -m pip download " + mod + " > " + os.devnull)
+            print("Terminé.")
+    print("Téléchargement terminé. Installation en cours...")
 
 def install():
     print("Détection de l'installation python...", end=" ", flush=True)
