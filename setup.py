@@ -37,11 +37,26 @@ def detect_python():
     print("/!\\ Votre installation Python est instrouvable ! Merci d'installer Python et de vérifier qu'il peut être lancé avec la commande 'python3'.")
     sys.exit(1)
 
+def detect_pip(python):
+    print("Détection de l'installateur de paquets...", end=" ")
+    test = os.system(python + ' -m pip')
+    print("Terminé.")
+    if test == 0:
+        return
+    print("Installation de l'installateur de paquets...", end=" ")
+    test = os.system(python + " get-pip.py")
+    print("Terminé.")
+    if test == 0:
+        return
+    print()
+    print("/!\\ Echec de l'installationde pip.")
+    sys.exit(1)
+
 def install():
     print("Détection de l'installation python...", end=" ")
     python = detect_python()
     print("Terminé.")
-    print("Détection de l'installateur de paquets...")
+    detect_pip()
 
 installed_packages = get_installed_packages()
 missing_packages = get_missing_packages(installed_packages)
