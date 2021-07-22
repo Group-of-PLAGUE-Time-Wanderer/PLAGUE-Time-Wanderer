@@ -60,13 +60,13 @@ def install_mods(mods, python):
             print("Téléchargement: https://bootstrap.pypa.io/get-pip.py...", end=" ", flush=True)
             r = requests.get("https://bootstrap.pypa.io/get-pip.py", stream=True)
             with open("file_name.pdf", 'wb') as f:
-                f.write(r.read())
+                f.write(r.raw.read())
             print("Terminé.")
         elif mod == "jeu_video":
             print("Téléchargement: https://gitlab.com/groupe-jeu-vid-o/jeu-video/-/archive/main/jeu-video-main.zip...", end=" ", flush=True)
             r = requests.get("https://gitlab.com/groupe-jeu-vid-o/jeu-video/-/archive/main/jeu-video-main.zip", stream=True)
             with open("file_name.pdf", 'wb') as f:
-                f.write(r.read())
+                f.write(r.raw.read())
             print("Terminé.")
         else:
             print("Téléchargement: https://pypi.org/simple/{0}/...".format(mod), end=" ", flush=True)
