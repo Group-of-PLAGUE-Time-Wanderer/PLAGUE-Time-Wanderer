@@ -47,7 +47,7 @@ def detect_pip(python):
     print("Installation de l'installateur de paquets...")
     print("Téléchargement: https://bootstrap.pypa.io/get-pip.py...", end=" ", flush=True)
     r = requests.get("https://bootstrap.pypa.io/get-pip.py", stream=True)
-    with open("file_name.pdf", 'wb') as f:
+    with open("get-pip.py", 'wb') as f:
         f.write(r.raw.read())
     print("Terminé.")
     print("Installation: pip...", end=" ", flush=True)
@@ -65,7 +65,7 @@ def install_mods(mods, python):
         if mod == "jeu_video":
             print("Téléchargement: https://gitlab.com/groupe-jeu-vid-o/jeu-video/-/archive/main/jeu-video-main.zip...", end=" ", flush=True)
             r = requests.get("https://gitlab.com/groupe-jeu-vid-o/jeu-video/-/archive/main/jeu-video-main.zip", stream=True)
-            with open("file_name.pdf", 'wb') as f:
+            with open("jeu_video.zip", 'wb') as f:
                 f.write(r.raw.read())
             print("Terminé.")
         else:
