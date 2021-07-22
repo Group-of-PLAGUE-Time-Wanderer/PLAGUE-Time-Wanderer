@@ -61,7 +61,7 @@ def detect_pip(python):
 def install_mods(mods, python):
     print("Téléchargement en cours...")
     for mod in mods:
-        if mod = "pip":
+        if mod == "pip":
             pass
         else:
             print("Téléchargement: https://pypi.org/simple/{0}/...".format(mod), end=" ", flush=True)
