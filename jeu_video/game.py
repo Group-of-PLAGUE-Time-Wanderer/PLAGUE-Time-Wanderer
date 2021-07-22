@@ -10,8 +10,8 @@ from pygame.locals import *
 
 pygame.init()
 
-window = pygame.display.set_mode((500, 500))
-pygame.display.set_caption("Jeu vidéo")
+window = pygame.display.set_mode((128, 144))
+pygame.display.set_caption("PLAGUE: Time Wanderer")
 icon = pygame.image.load("images/icon.png")
 pygame.display.set_icon(icon)
 
