@@ -22,7 +22,6 @@ def get_installed_packages():
 
 def get_missing_packages(installed_packages):
     module_list = required_modules
-    module_list.append("jeu_video")
     for module in installed_packages:
         module_list.remove(module)
     return module_list
@@ -51,27 +50,20 @@ def detect_pip(python):
         f.write(r.raw.read())
     print("Terminé.")
     print("Installation: pip...", end=" ", flush=True)
-    test = os.system(python + "get-pip.py > " + os.devnull)
+    test = os.system(python + " get-pip.py > " + os.devnull)
     print("Terminé.")
     print("Terminé.")
     if test == 0:
         return
-    print("/!\\ Echec de l'installationde pip.")
+    print("/!\\ Echec de l'installation de pip.")
     sys.exit(1)
 
 def install_mods(mods, python):
     print("Téléchargement en cours...")
     for mod in mods:
-        if mod == "jeu_video":
-            print("Téléchargement: https://gitlab.com/groupe-jeu-vid-o/jeu-video/-/archive/main/jeu-video-main.zip...", end=" ", flush=True)
-            r = requests.get("https://gitlab.com/groupe-jeu-vid-o/jeu-video/-/archive/main/jeu-video-main.zip", stream=True)
-            with open("jeu_video.zip", 'wb') as f:
-                f.write(r.raw.read())
-            print("Terminé.")
-        else:
-            print("Téléchargement: https://pypi.org/simple/{0}/...".format(mod), end=" ", flush=True)
-            os.system(python + " -m pip download " + mod + " > " + os.devnull)
-            print("Terminé.")
+        print("Téléchargement: https://pypi.org/simple/{0}/...".format(mod), end=" ", flush=True)
+        os.system(python + " -m pip download " + mod + " > " + os.devnull)
+        print("Terminé.")
     print("Téléchargement terminé. Installation en cours...")
 
 def install(missing_packages):
@@ -89,7 +81,8 @@ print()
 print("Paquets dèja installés :")
 print("   ", "\t".join(installed_packages))
 print("Paquets à installer :")
-print("   ", "\t".join(missing_packages))
+packages_to_install = missing_packages[:].append("jeu_video")
+print("   ", "\t".join(packages_to_install))
 answer = input("Continuer ? [O/n] ")
 if not answer or answer.lower() in ("o", "oui"):
     answer = True
