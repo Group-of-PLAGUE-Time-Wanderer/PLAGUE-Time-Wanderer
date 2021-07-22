@@ -44,25 +44,25 @@ def detect_pip(python):
     print("Terminé.")
     if test == 0:
         return
-    print("Installation de l'installateur de paquets...", end=" ", flush=True)
-    test = os.system(python + " get-pip.py > " + os.devnull)
+    print("Installation de l'installateur de paquets...")
+    print("Téléchargement: https://bootstrap.pypa.io/get-pip.py...", end=" ", flush=True)
+    r = requests.get("https://bootstrap.pypa.io/get-pip.py", stream=True)
+    with open("file_name.pdf", 'wb') as f:
+        f.write(r.raw.read())
+    print("Terminé.")
+    print("Installation: pip...", end=" ", flush=True)
+    test = os.system(python + "get-pip.py > " + os.devnull)
+    print("Terminé.")
     print("Terminé.")
     if test == 0:
         return
-    print()
     print("/!\\ Echec de l'installationde pip.")
     sys.exit(1)
 
 def install_mods(mods, python):
     print("Téléchargement en cours...")
     for mod in mods:
-        if mod == "pip":
-            print("Téléchargement: https://bootstrap.pypa.io/get-pip.py...", end=" ", flush=True)
-            r = requests.get("https://bootstrap.pypa.io/get-pip.py", stream=True)
-            with open("file_name.pdf", 'wb') as f:
-                f.write(r.raw.read())
-            print("Terminé.")
-        elif mod == "jeu_video":
+        if mod == "jeu_video":
             print("Téléchargement: https://gitlab.com/groupe-jeu-vid-o/jeu-video/-/archive/main/jeu-video-main.zip...", end=" ", flush=True)
             r = requests.get("https://gitlab.com/groupe-jeu-vid-o/jeu-video/-/archive/main/jeu-video-main.zip", stream=True)
             with open("file_name.pdf", 'wb') as f:
