@@ -10,7 +10,7 @@ import sys
 import pkgutil
 import requests
 
-required_modules = ["pygame"]
+required_modules = ["pygame", "pip"]
 
 def get_installed_packages():
     module_list = list()
@@ -61,9 +61,12 @@ def detect_pip(python):
 def install_mods(mods, python):
     print("Téléchargement en cours...")
     for mod in mods:
-        print("Téléchargement: https://pypi.org/simple/{0}/...".format(mod), end=" ", flush=True)
-        os.system(python + " -m pip download " + mod + " > " + os.devnull)
-        print("Terminé.")
+        if mod = "pip":
+            pass
+        else:
+            print("Téléchargement: https://pypi.org/simple/{0}/...".format(mod), end=" ", flush=True)
+            os.system(python + " -m pip download " + mod + " > " + os.devnull)
+            print("Terminé.")
     print("Téléchargement terminé. Installation en cours...")
 
 def install(missing_packages):
@@ -81,7 +84,8 @@ print()
 print("Paquets dèja installés :")
 print("   ", "\t".join(installed_packages))
 print("Paquets à installer :")
-packages_to_install = missing_packages[:].append("jeu_video")
+packages_to_install = missing_packages[:]
+packages_to_install.append("jeu_video")
 print("   ", "\t".join(packages_to_install))
 answer = input("Continuer ? [O/n] ")
 if not answer or answer.lower() in ("o", "oui"):
