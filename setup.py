@@ -27,10 +27,10 @@ def get_missing_packages(installed_packages):
     return module_list
 
 def detect_python():
-    test = os.system("python3 --version > " + os.devnull)
+    test = os.system("python3 --version &> " + os.devnull)
     if test == 0:
         return "python3"
-    test = os.system("py -3 --version > " + os.devnull)
+    test = os.system("py -3 --version &> " + os.devnull)
     if test == 0:
         return "py -3"
     print()
@@ -39,7 +39,7 @@ def detect_python():
 
 def detect_pip(python):
     print("Détection de l'installateur de paquets...", end=" ", flush=True)
-    test = os.system(python + " -m pip > " + os.devnull)
+    test = os.system(python + " -m pip &> " + os.devnull)
     print("Terminé.")
     if test == 0:
         return
@@ -50,7 +50,7 @@ def detect_pip(python):
         f.write(r.raw.read())
     print("Terminé.")
     print("Installation: pip...", end=" ", flush=True)
-    test = os.system(python + " get-pip.py > " + os.devnull)
+    test = os.system(python + " get-pip.py &> " + os.devnull)
     print("Terminé.")
     print("Terminé.")
     if test == 0:
@@ -65,7 +65,7 @@ def install_mods(mods, python):
             pass
         else:
             print("Téléchargement: https://pypi.org/simple/{0}/...".format(mod), end=" ", flush=True)
-            os.system(python + " -m pip download " + mod + " > " + os.devnull)
+            os.system(python + " -m pip download --only-binary=:all: " + mod + " &> " + os.devnull)
             print("Terminé.")
     print("Téléchargement terminé. Installation en cours...")
 
