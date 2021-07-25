@@ -12,8 +12,8 @@ pygame.init()
 
 window = pygame.display.set_mode((128, 144))
 pygame.display.set_caption("PLAGUE: Time Wanderer")
-#icon = pygame.image.load("images/icon.png")
-#pygame.display.set_icon(icon)
+icon = pygame.image.load("images/icon.png")
+pygame.display.set_icon(icon)
 
 main_loop = True
 
