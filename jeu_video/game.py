@@ -5,12 +5,17 @@ Jeu vidéo.
 
 Projet de jeu vidéo utilisant Python.
 """
+from time import sleep
+
 import pygame
 from pygame.locals import *
 
 pygame.init()
 
 bgcolor = (52,51,67) #couleur de fond
+
+def update():
+	pygame.display.update()
 
 scsize = (1000, 700) #ajout de tailles réglables à l'avenir
 
@@ -29,10 +34,14 @@ window.fill(bgcolor) #remplir uniformément
 splash = pygame.image.load("images/splash.png") #splash screen au démarrage
 window.blit(splash, calccenter(splash)) #afficher le splash screen
 
-progress = pygame.image.load("images/Progress.png")
-window.blit(progress, calccenter(progress))
+update() #ne pas oublier de rafraîchir l'écran !
 
-pygame.display.update() #ne pas oublier de rafraîchir l'écran !
+sleep(3)
+progress = pygame.image.load("images/Progress.png")
+tmp = calccenter(progress)[1]-(0-scsize[1]*0.3) #centre y - 30% de la taille de l'écran
+window.blit(progress, (calccenter(progress)[0],tmp))
+
+update()
 
 main_loop = True
 
