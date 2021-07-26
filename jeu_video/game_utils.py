@@ -32,10 +32,28 @@ class Window:
         self.window.fill(color)
         self.refresh()
 
+    def image_center(self, image):
+        image_size = image.get().get_size()
+        image_center = (image_size[0] / 2, image_size[1] / 2)
+        return image_center
+
+    def center_coords(self, coords, image):
+        image_size = image.get().get_size()
+        image_center = (image_size[0] / 2, image_size[1] / 2)
+        centered_coords = (coords[0] + self.width / 2 - image_center[0], coords[1] + self.height / 2 - image_center[1])
+        return centered_coords
+
     def add_image(self, image, position):
-        self.window.blit(image.get(), position)
+        self.window.blit(image.get(), self.center_coords(position, image))
         self.refresh()
 
+    def main_loop(self):
+        main_loop = True
+        while main_loop:
+            for event in pygame.event.get():
+                if event.type == QUIT:
+                    main_loop = False
+            self.refresh()
 
 class Image:
     def __init__(self, path):
