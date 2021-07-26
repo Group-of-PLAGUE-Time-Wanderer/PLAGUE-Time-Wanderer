@@ -11,7 +11,7 @@ import physics
 
 pygame.init()
 
-main_window = physics.Window(512, 576, "PLAGUE: Time Wanderer", physics.Image("images/icon.png").get())
+main_window = physics.Window(1000, 700, "PLAGUE: Time Wanderer", physics.Image("images/icon.png").get())
 
 bgcolor = (52,51,67) #couleur de fond
 
@@ -28,7 +28,8 @@ splash = physics.Image("images/splash.png") #splash screen au démarrage
 main_window.add_image(splash, calccenter(splash)) #afficher le splash screen
 
 progress = physics.Image("images/Progress.png")
-main_window.add_image(progress, calccenter(progress))
+progress_y = calccenter(progress)[1]-(0-main_window.height*0.3) #centre y - 30% de la taille de l'écran
+main_window.add_image(progress, (calccenter(progress)[0], progress_y))
 
 main_loop = True
 

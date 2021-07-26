@@ -33,7 +33,7 @@ class Window:
         self.refresh()
 
     def add_image(self, image, position):
-        self.window.blit(image, position)
+        self.window.blit(image.get(), position)
         self.refresh()
 
 
