@@ -32,6 +32,10 @@ class Window:
         self.window.fill(color)
         self.refresh()
 
+    def add_image(self, image, position):
+        self.window.blit(image, position)
+        self.refresh()
+
 
 class Image:
     def __init__(self, path):
