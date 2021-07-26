@@ -1,18 +1,18 @@
 #!/usr/bin/sh
 echo "Syncing..."
-echo " Fetching..."
-git fetch
+echo -n " Fetching... "
+git fetch > log.txt
 echo " Done."
-echo " Pulling..."
-git pull
+echo -n " Pulling..."
+git pull > log.txt
 echo " Done."
-echo " Adding..."
-git add .
+echo -n " Adding..."
+git add . > log.txt
 echo " Done."
-echo " Commiting..."
-git commit -a -m "Sync"
+echo -n " Commiting..."
+git commit -a -m "Sync" > log.txt
 echo " Done."
-echo " Pushing..."
-git push
+echo -n " Pushing..."
+git push > log.txt
 echo " Done."
 echo "Done."
