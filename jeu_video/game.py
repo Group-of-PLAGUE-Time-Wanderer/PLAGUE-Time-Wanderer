@@ -28,7 +28,9 @@ splash = game_utils.Image("images/splash.png") #splash screen au démarrage
 main_window.add_image(splash, (0, 0)) #afficher le splash screen
 
 progress = game_utils.Image("images/Progress.png")
+progressed = game_utils.Image("images/progressed.png")
 main_window.add_image(progress, (0, 200))
+main_window.add_image(progressed, (-301, 200))
 
 main_window.main_loop()
 
