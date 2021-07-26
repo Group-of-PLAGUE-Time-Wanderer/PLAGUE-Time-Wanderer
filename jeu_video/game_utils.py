@@ -22,6 +22,8 @@ class Window:
         self.window = pygame.display.set_mode((self.width, self.height))
         self.title = title
         self.icon = icon
+        self.images = list()
+        self.bg = None
         pygame.display.set_icon(icon)
         pygame.display.set_caption(self.title)
 
@@ -29,6 +31,7 @@ class Window:
         pygame.display.update()
 
     def bgfill(self, color):
+        self.bg = color
         self.window.fill(color)
         self.refresh()
 
@@ -44,6 +47,7 @@ class Window:
         return centered_coords
 
     def add_image(self, image, position):
+        self.images.append((image, position))
         self.window.blit(image.get(), self.center_coords(position, image))
         self.refresh()
 
@@ -53,7 +57,10 @@ class Window:
             for event in pygame.event.get():
                 if event.type == QUIT:
                     main_loop = False
-            self.refresh()
+            if self.bg:
+                self.bgfill(self.bg)
+            for image in self.images:
+                self.add_image(image[0], image[1])
 
 class Image:
     def __init__(self, path):
