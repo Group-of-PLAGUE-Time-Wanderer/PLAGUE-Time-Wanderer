@@ -10,6 +10,12 @@ from pygame.locals import *
 
 pygame.init()
 
+def center_coords(self, coords, image):
+    image_size = image.get().get_size()
+    image_center = (image_size[0] / 2, image_size[1] / 2)
+    centered_coords = (coords[0] + self.width / 2 - image_center[0], coords[1] + self.height / 2 - image_center[1])
+    return centered_coords
+
 
 class physic:
     pass
@@ -40,15 +46,9 @@ class Window:
         image_center = (image_size[0] / 2, image_size[1] / 2)
         return image_center
 
-    def center_coords(self, coords, image):
-        image_size = image.get().get_size()
-        image_center = (image_size[0] / 2, image_size[1] / 2)
-        centered_coords = (coords[0] + self.width / 2 - image_center[0], coords[1] + self.height / 2 - image_center[1])
-        return centered_coords
-
     def add_image(self, image, position):
         self.images.append((image, position))
-        self.window.blit(image.get(), self.center_coords(position, image))
+        self.window.blit(image.get(), center_coords(position, image))
         self.refresh()
 
     def main_loop(self):
