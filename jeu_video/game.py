@@ -8,7 +8,16 @@ Projet de jeu vidéo utilisant Python.
 import pygame
 from pygame.locals import *
 import game_utils
+import sentry_sdk  # Sentry bug tracking
 
+sentry_sdk.init(
+    "https://5d1eb25621ff48679b0a91f045593c73@o936010.ingest.sentry.io/5886066",
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0
+)
 pygame.init()
 
 main_window = game_utils.Window(1000, 700, "PLAGUE: Time Wanderer", game_utils.Image("images/icon.png").get())
