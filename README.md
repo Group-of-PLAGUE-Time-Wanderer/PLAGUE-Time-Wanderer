@@ -9,7 +9,7 @@ Le jeu se déroule en 1349 soit en pleine crise de la peste noire en Europe, à 
 
 *Concernant les niveaux du jeu le premier se passera dans les soutterains de Paris et c'est à ce moment que le héros découvrira ses pouvoirs et se rendra xompte qu'il est amnésique.*
 
-> Biographie:
+Biographie:
 > Le personnage vient d’une famille respectée de nobles alchimistes d’une autre culture et il vit avec ses deux frères qui le méprisent. On dit qu'il aurait un collier magique, invention de son père mort et seul souvenir de celui-ci.
 > Un jour, au fur et à mesure de ses expériences, il inventa alors une mystérieuse formule.
 > On raconte qu'il aurait montré les effets de cette potion, mais que ça famille l'aurait rejeté. Alors, il décida d'embarquer à bord d'un navire pour l'europe, pour aller présenter son invention mais sur le bateau, un matelot, sous les ordres du roi, lui a volé pour soit-disant soigner une mystérieuse maladie que l'on nomme: 
