@@ -7,33 +7,32 @@ assignees: Virinas-code
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Décrire le bug**
+Ici, une explication claire et précise du bug.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. See error
+**Pour le reproduire**
+Cette fois, il s'agit de donner toutes les étapes pour le reproduire:
+1. Aller à "..."
+2. Cliquer sur "..."
+3. Regarder l'erreur
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Le résultat attendu**
+Une explication précise, mais claire de ce qui devrait arriver.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**Captures d'écran**
+Si possible, des captures d'écran [Print Scr/Imp écr] ou [Win+maj+S].
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+**Caractéristiques (Merci de compléter les informations suivantes):**
+ - OS: [e.g. Mac OSX]
+ - Version [e.g. Yosemite 10.10.5]
 
-**Python vesion (please complete the following information):**
+**Version de Python:**
  - Version: [e.g. 3.7]
- - Pip version: [get it with `pip --version`]
- - Packages: [get it with `pip freeze`]
+ - Pip: [obtenez-la avec `pip --version`]
+ - Modules: [obtenez-les avec `pip freeze`]
 ```
-[Packages list]
+[Liste des modules]
 ```
 
-**Additional context**
-Add any other context about the problem here.
+**Remarques/Commentaires**
+Vous pouvez ajputer quelques infos ici.
