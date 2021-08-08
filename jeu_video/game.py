@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Jeu vidéo.
@@ -6,7 +5,6 @@ Jeu vidéo.
 Projet de jeu vidéo utilisant Python.
 """
 import pygame
-from pygame.locals import *
 import game_utils
 import sentry_sdk  # Sentry bug tracking
 
@@ -21,17 +19,17 @@ sentry_sdk.init(
 pygame.init()
 
 main_window = game_utils.Window(
-	1000, 700, "PLAGUE: Time Wanderer", "images/icon.png")
+    1000, 700, "PLAGUE: Time Wanderer", "images/icon.png")
 
 bgcolor = (52, 51, 67)  # couleur de fond
 
 
 def calccenter(img):
-	global main_window
-	scsize = (main_window.width, main_window.height)
-	isl = img.get().get_size()
-	# calcul condensé du centre de l'écran soustrait aux centre de l'image pour arriver pile au... milieu
-	return (scsize[0]/2-isl[0]/2, scsize[1]/2-isl[1]/2)
+    global main_window
+    scsize = (main_window.width, main_window.height)
+    isl = img.get().get_size()
+    # calcul condensé du centre de l'écran soustrait aux centre de l'image pour arriver pile au... milieu
+    return scsize[0]/2-isl[0]/2, scsize[1]/2-isl[1]/2
 
 
 main_window.bgfill(bgcolor)
