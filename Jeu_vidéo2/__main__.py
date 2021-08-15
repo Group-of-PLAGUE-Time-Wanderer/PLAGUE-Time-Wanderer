@@ -1,5 +1,5 @@
-#!/usr/python
-# -*- coding: utf-8 -*-
+#!/usr/bin/python
+# coding: utf-8
 from config import *
 import loadutils as load_util
 
@@ -23,9 +23,10 @@ splash = load("assets/splash.png")
 splashpos = calccenter(splash)
 step()
 start_button = load("assets/launch_button.png")
+start_button = pygame.transform.scale(start_button, (400, 400))
 launchrect = start_button.get_rect()
 launchrect.x = calccenter(start_button)[0]
-launchrect.y = round(window["size"][1]/2)
+launchrect.y = round(window["size"][1]/2 - 150)
 step()
 sleep(0.5)
 
@@ -33,11 +34,16 @@ del loading_bar
 
 running = True
 i = 0
+main_menu = True
 
 while running:
     screen.fill((52, 51, 67))
-    insert(splash, splashpos)
-    insert(start_button, launchrect)
+    if main_menu:
+        insert(splash, splashpos)
+        insert(start_button, launchrect)
+    else:
+        pass
+
     refresh()
 
     for e in pygame.event.get():
@@ -47,6 +53,8 @@ while running:
         elif e.type == pygame.MOUSEBUTTONDOWN:
             if launchrect.collidepoint(e.pos):
                 print("start")
+                main_menu = False
+
 
     clock.tick(window["FPS"])
 

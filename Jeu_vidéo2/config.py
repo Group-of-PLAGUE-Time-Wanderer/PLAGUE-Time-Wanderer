@@ -19,6 +19,14 @@ insert = screen.blit
 refresh = disp.flip
 clock = pygame.time.Clock()
 
+# PLayer
+player_controls = {
+    "up": pygame.K_UP,
+    "down": pygame.K_DOWN,
+    "left": pygame.K_LEFT,
+    "right": pygame.K_RIGHT,
+}
+
 
 def calccenter(img):
     global screen
