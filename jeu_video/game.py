@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Jeu vidéo.
+PLAGUE: Time Wanderer
 
-Projet de jeu vidéo utilisant Python.
+Python Video Game.
 """
 import pygame
 import game_utils
