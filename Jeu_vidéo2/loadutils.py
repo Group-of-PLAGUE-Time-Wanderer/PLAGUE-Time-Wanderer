@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # coding: utf-8
 from config import *
-from time import sleep
 
 
 class ProgressBar(pygame.sprite.Sprite):
@@ -22,8 +21,6 @@ class ProgressBar(pygame.sprite.Sprite):
             self.size = (percent/100) * self.full_size
         else:
             self.size = self.full_size
-
-        sleep(0.1)
 
         self.update()
 

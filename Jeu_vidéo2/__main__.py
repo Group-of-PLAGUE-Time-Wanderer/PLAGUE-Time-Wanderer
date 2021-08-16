@@ -3,7 +3,6 @@
 from config import *
 from time import sleep
 import loadutils as load_util
-import objects
 
 pygame.init()
 
@@ -17,10 +16,12 @@ loading_bar = load_util.ProgressBar((
     10, 1000
 )
 
-loading_bar.totalsteps = 3
+loading_bar.totalsteps = 5
 step = loading_bar.incrementfromstep
 
 loading_bar.update()
+import objects
+step()
 splash = load("assets/splash.png")
 splashpos = calccenter(splash)
 step()
@@ -32,7 +33,7 @@ launchrect.y = round(window["size"][1]/2 - 150)
 step()
 floor = objects.Floor()
 step()
-player = objects.Player(player_controls)
+player = objects.Player()
 player.collidewith.add(floor)
 step()
 sleep(0.1)
