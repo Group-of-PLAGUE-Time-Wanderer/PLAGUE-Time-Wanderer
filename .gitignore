@@ -6,3 +6,5 @@ log3.txt
 log4.txt
 # IDE Config
 .idea/
+# Virtual envs
+.venv/
