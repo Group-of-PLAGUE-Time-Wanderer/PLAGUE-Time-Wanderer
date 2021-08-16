@@ -1,8 +1,9 @@
 #!/usr/bin/python
 # coding: utf-8
 from config import *
+from time import sleep
 import loadutils as load_util
-import entity
+import objects
 
 pygame.init()
 
@@ -29,7 +30,10 @@ launchrect = start_button.get_rect()
 launchrect.x = calccenter(start_button)[0]
 launchrect.y = round(window["size"][1]/2 - 150)
 step()
-player = entity.Player(player_controls)
+floor = objects.Floor()
+step()
+player = objects.Player(player_controls)
+player.collidewith.add(floor)
 step()
 sleep(0.1)
 
@@ -49,6 +53,7 @@ while running:
 
     if not main_menu:
         player.update()
+        floor.update()
 
     refresh()
 

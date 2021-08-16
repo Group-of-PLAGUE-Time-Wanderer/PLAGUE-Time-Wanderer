@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import pygame
-from time import sleep
+# from time import sleep
 
 load = pygame.image.load
 
@@ -12,6 +12,17 @@ window = {
     "FPS": 60,  # Changing it later
 }
 
+# Physics
+gravity = 0.5
+
+# PLayer
+player_controls = {
+    "up": None,  # disaled
+    "down": None,  # disabled too
+    "left": pygame.K_LEFT,
+    "right": pygame.K_RIGHT,
+}
+
 # Alias
 disp = pygame.display
 screen = disp.set_mode(window["size"])
@@ -19,14 +30,6 @@ insert = screen.blit
 refresh = disp.flip
 clock = pygame.time.Clock()
 keys = {}
-
-# PLayer
-player_controls = {
-    "up": pygame.K_UP,
-    "down": pygame.K_DOWN,
-    "left": pygame.K_LEFT,
-    "right": pygame.K_RIGHT,
-}
 
 
 def calccenter(img):
@@ -42,4 +45,3 @@ def control(direction: str):
         return keys[player_controls[direction]]
     except KeyError:
         return False
-
