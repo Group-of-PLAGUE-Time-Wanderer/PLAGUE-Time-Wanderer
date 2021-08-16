@@ -9,6 +9,8 @@ class GravitySprite(pygame.sprite.Sprite):
         self.velocity = (0, 0)  # x-vel, y-vel
         self.speed = 10
         self.controls = controls
+        self.image = load("assets/player.bmp")
+        self.rect = self.image.get_rect()
 
     def move(self, direction):
         if direction == "up":
@@ -22,6 +24,12 @@ class GravitySprite(pygame.sprite.Sprite):
 
     def collide(self, group):
         print(pygame.sprite.spritecollide(self, group, False))
+
+    def update(self, *args):
+        self.rect.x = self.velocity[0]
+        self.rect.y = self.velocity[1]
+
+        insert(self.image, self.rect)
 
 #    def update(self):
 #        pass
