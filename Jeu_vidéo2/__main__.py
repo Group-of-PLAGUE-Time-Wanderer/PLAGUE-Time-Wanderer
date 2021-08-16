@@ -63,16 +63,12 @@ while running:
             running = False
 
         if e.type == pygame.MOUSEBUTTONDOWN:
-            print("mouse")
             if launchrect.collidepoint(e.pos) and main_menu:
-                print("start")
                 main_menu = False
 
         if e.type == pygame.KEYDOWN:
-            print("key pressed")
             keys[e.key] = True
         elif e.type == pygame.KEYUP:
-            print("key released")
             keys[e.key] = False
 
     clock.tick(window["FPS"])
