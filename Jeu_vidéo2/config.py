@@ -35,3 +35,11 @@ def calccenter(img):
     isl = img.get_size()
     # calcul condensé du centre de l'écran soustrait aux centre de l'image pour arriver pile au... milieu
     return round(scsize[0]/2-isl[0]/2), round(scsize[1]/2-isl[1]/2)
+
+
+def control(direction: str):
+    try:
+        return keys[player_controls[direction]]
+    except KeyError:
+        return False
+
