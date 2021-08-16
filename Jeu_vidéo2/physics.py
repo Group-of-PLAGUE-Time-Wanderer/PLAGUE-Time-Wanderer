@@ -1,7 +1,5 @@
 #!/usr/bin/python
 # coding: utf-8
-import pygame.sprite
-
 from config import *
 
 
@@ -17,11 +15,13 @@ class GravitySprite(pygame.sprite.Sprite):
         self.controls = ["up", "down", "left", "right"]
         self.gravity = gravity
         self.collidewith = pygame.sprite.Group()
-#        self.keyy = [pygame.K_UP, pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT]
+        self.canjump = False
+        self.jump_power = jump_power
 
     def move(self, direction):
-        if direction == "up":
-            self.rect.y -= self.speed
+        if direction == "up" and self.canjump:
+            self.yvel += self.jump_power
+            self.canjump = False
         elif direction == "down":
             self.rect.y += self.speed
         elif direction == "left":
@@ -39,6 +39,7 @@ class GravitySprite(pygame.sprite.Sprite):
 
     def update(self):
         while self.collide(self.collidewith):
+            self.canjump = True
             self.yvel = 0
             self.rect.y -= 1
 
