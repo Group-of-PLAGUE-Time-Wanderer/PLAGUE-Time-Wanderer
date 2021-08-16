@@ -4,19 +4,18 @@ from config import *
 
 
 class GravitySprite(pygame.sprite.Sprite):
-    def __init__(self, controls: dict = None):
+    def __init__(self):
         super().__init__()
         self.xvel = 0
         self.yvel = 0
         self.speed = 10
-        self.controls = controls
         self.image = load("assets/placeholder.bmp")
         self.rect = self.image.get_rect()
-        self.controls = ["up", "down", "left", "right"]
+        self.controls = None
         self.gravity = gravity
         self.collidewith = pygame.sprite.Group()
         self.canjump = False
-        self.jump_power = jump_power
+        self.jump_power = None
 
     def move(self, direction):
         if direction == "up" and self.canjump:
@@ -48,6 +47,3 @@ class GravitySprite(pygame.sprite.Sprite):
         self.rect.y -= self.yvel
 
         insert(self.image, self.rect)
-
-#    def update(self):
-#        pass

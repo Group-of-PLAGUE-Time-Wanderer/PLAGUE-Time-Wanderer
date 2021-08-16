@@ -16,7 +16,7 @@ window = {
 gravity = 0.5
 
 # PLayer
-jump_power = 10
+jump_power = 15
 player_controls = {
     "up": pygame.K_SPACE,  # disaled
     "down": None,  # disabled too
