@@ -56,14 +56,18 @@ class Window:
         self.window.blit(image.get(),
                          center_coords(position, image, self))
 
+    def check_close(self):
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                return True
+        return False
+
     def main_loop(self):
         main_loop = True
         print(self.images)
         while main_loop:
             print("loop")
-            for event in pygame.event.get():
-                if event.type == QUIT:
-                    main_loop = False
+            main_loop = not self.check_close()
             if self.bg:
                 self.bgfill(self.bg)
             for image in self.images:
