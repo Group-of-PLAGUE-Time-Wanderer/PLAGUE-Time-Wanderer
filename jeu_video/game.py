@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Jeu vidéo.
+PLAGUE: Time Wanderer
 
-Projet de jeu vidéo utilisant Python.
+Python Video Game.
 """
 import pygame
 import game_utils
+import widgets
 import sentry_sdk  # Sentry bug tracking
 
 sentry_sdk.init(
@@ -41,6 +42,14 @@ progress = game_utils.Image("images/Progress.png")
 progressed = game_utils.Image("images/progressed.png")
 main_window.add_image(progress, (0, 200))
 main_window.add_image(progressed, (-301, 200))
+
+# %% Test progress bar
+import time
+progress = widgets.ProgressBar(progress, progressed, 0, 200)
+for a in range(100):
+    time.sleep(0.1)
+    progress.update().show(main_window)
+# %%
 
 main_window.main_loop()
 
