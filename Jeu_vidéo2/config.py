@@ -18,6 +18,7 @@ screen = disp.set_mode(window["size"])
 insert = screen.blit
 refresh = disp.flip
 clock = pygame.time.Clock()
+keys = {}
 
 # PLayer
 player_controls = {

@@ -23,7 +23,7 @@ class ProgressBar(pygame.sprite.Sprite):
         else:
             self.size = self.full_size
 
-#        sleep(0.1)
+        sleep(0.1)
 
         self.update()
 

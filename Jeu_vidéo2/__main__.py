@@ -2,6 +2,7 @@
 # coding: utf-8
 from config import *
 import loadutils as load_util
+import entity
 
 pygame.init()
 
@@ -15,7 +16,7 @@ loading_bar = load_util.ProgressBar((
     10, 1000
 )
 
-loading_bar.totalsteps = 2
+loading_bar.totalsteps = 3
 step = loading_bar.incrementfromstep
 
 loading_bar.update()
@@ -28,7 +29,9 @@ launchrect = start_button.get_rect()
 launchrect.x = calccenter(start_button)[0]
 launchrect.y = round(window["size"][1]/2 - 150)
 step()
-sleep(0.5)
+player = entity.Player(player_controls)
+step()
+sleep(0.1)
 
 del loading_bar
 
@@ -44,17 +47,27 @@ while running:
     else:
         pass
 
+    if not main_menu:
+        player.update()
+
     refresh()
 
     for e in pygame.event.get():
         if e.type == pygame.QUIT:
             running = False
 
-        elif e.type == pygame.MOUSEBUTTONDOWN:
-            if launchrect.collidepoint(e.pos):
+        if e.type == pygame.MOUSEBUTTONDOWN:
+            print("mouse")
+            if launchrect.collidepoint(e.pos) and main_menu:
                 print("start")
                 main_menu = False
 
+        if e.type == pygame.KEYDOWN:
+            print("key pressed")
+            keys[e.key] = True
+        elif e.type == pygame.KEYUP:
+            print("key released")
+            keys[e.key] = False
 
     clock.tick(window["FPS"])
 
