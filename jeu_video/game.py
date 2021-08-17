@@ -8,6 +8,7 @@ import pygame
 import game_utils
 import widgets
 import sentry_sdk  # Sentry bug tracking
+import time
 
 sentry_sdk.init(
     "https://5d1eb25621ff48679b0a91f045593c73@o936010.ingest.sentry.io/5886066",
@@ -24,32 +25,31 @@ main_window = game_utils.Window(
 
 bgcolor = (52, 51, 67)  # couleur de fond
 
-
-def calccenter(img):
-    global main_window
-    scsize = (main_window.width, main_window.height)
-    isl = img.get().get_size()
-    # calcul condensé du centre de l'écran soustrait aux centre de l'image pour arriver pile au... milieu
-    return scsize[0]/2-isl[0]/2, scsize[1]/2-isl[1]/2
-
-
-main_window.bgfill(bgcolor)
-
-splash = game_utils.Image("images/splash.png")  # splash screen au démarrage
-main_window.add_image(splash, (0, 0))  # afficher le splash screen
-
 progress = game_utils.Image("images/Progress.png")
 progressed = game_utils.Image("images/progressed.png")
-main_window.add_image(progress, (0, 200))
-main_window.add_image(progressed, (-301, 200))
-
-# %% Test progress bar
-import time
-progress = widgets.ProgressBar(progress, progressed, 0, 200)
-for a in range(100):
-    time.sleep(0.1)
-    progress.update().show(main_window)
-# %%
+progress = widgets.ProgressBar(main_window, 0, 200, progress, progressed, 18)
+main_window.bgfill(bgcolor)
+progress.update()
+splash = game_utils.Image("images/splash.png")  # splash screen au démarrage
+progress.update()
+launch_button = game_utils.Image("images/launch_button.png")
+progress.update()
+main_window.add_image(splash, (0, 0))  # afficher le splash screen
+progress.update()
+button = widgets.Button(main_window, 0, 250, launch_button)
+progress.update()
+def click():
+    print("click")
+progress.update()
+button.onclick(click)
+progress.update()
+while progress.available():
+    time.sleep(0.01)
+    progress.update()
+del progress
+button.show()
+while True:
+    button.events()
 
 main_window.main_loop()
 
