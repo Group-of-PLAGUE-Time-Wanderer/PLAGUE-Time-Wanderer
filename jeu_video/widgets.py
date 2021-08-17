@@ -77,3 +77,29 @@ class ProgressBar(Widget):
         if self.window.check_close():
             sys.exit(1)
         return self
+
+
+class Button(Widget):
+    """
+    Button widget.
+    """
+
+    def __init__(self, window: Window, x: int, y: int, image: Image):
+        super().__init__(self)
+        self.window = window
+        self.x = x
+        self.y = y
+        self.image = image
+        self.click = None
+
+    def onclick(self, func: function_type):
+        self.click = func
+
+    def events(self):
+        for event in self.window.events():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                print(f"Click: {event.pos}")
+
+    def show(self):
+        self.window.load_image(self.image, (self.x, self.y))
+        self.window.refresh()
