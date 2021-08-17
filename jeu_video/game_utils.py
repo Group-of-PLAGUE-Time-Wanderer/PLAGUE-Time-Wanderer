@@ -86,11 +86,19 @@ class Window:
 
 
 class Image:
+    """
+    Base class for images.
+    """
     def __init__(self, path):
         self.path = path
         self.image = pygame.image.load(path).convert_alpha()
 
-    def get(self):
+    def get(self) -> pygame.Surface:
+        """
+        Get pygame surface.
+
+        @return: pygame.Surface
+        """
         return self.image
 
     def __str__(self):
