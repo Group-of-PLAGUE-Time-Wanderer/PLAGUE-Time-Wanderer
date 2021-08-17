@@ -7,7 +7,7 @@ load = pygame.image.load
 # Configuration du jeu
 window = {
     "size": (1080, 740),
-    "title": "PLAGUE: Time Wanderer",
+    "title": "PLAGUE: Time Wanderer Indev 1.4",
     "icon": load("assets/icon.png"),
     "FPS": 60,  # Changing it later
 }
