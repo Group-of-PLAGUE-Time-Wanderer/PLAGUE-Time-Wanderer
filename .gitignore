@@ -8,3 +8,5 @@ log4.txt
 .idea/
 # Virtual envs
 .venv/
+# Directory
+.directory
