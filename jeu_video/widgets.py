@@ -9,8 +9,19 @@ import sys
 import pygame
 from game_utils import Image, Window
 
+function_type = type(sys.exit)
 
-class ProgressBar:
+
+class Widget:
+    """
+    Base class for widgets.
+    """
+
+    def __init__(self, subclass):
+        print(f"Widget: {type(subclass).__name__} loaded")
+
+
+class ProgressBar(Widget):
     """Progress bar widget."""
 
     def __init__(self, window: Window, x: int, y: int, outer: Image, inner: Image, border: int = 1):
@@ -23,6 +34,8 @@ class ProgressBar:
         :param bool infinite: Perpetual progress bar or not.
 
         """
+        super().__init__(self)
+        self.window: Window = window
         self.outer: Image = outer
         self.inner: Image = inner
         self.border: int = border
