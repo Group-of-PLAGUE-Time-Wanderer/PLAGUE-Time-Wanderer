@@ -92,6 +92,9 @@ class Image:
     def __init__(self, path):
         self.path = path
         self.image = pygame.image.load(path).convert_alpha()
+        self.size = self.image.get_size()
+        self.width = self.size[0]
+        self.height = self.size[1]
 
     def get(self) -> pygame.Surface:
         """
