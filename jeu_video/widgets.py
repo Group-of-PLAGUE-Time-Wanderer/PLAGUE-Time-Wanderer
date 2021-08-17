@@ -12,7 +12,8 @@ from game_utils import Image, Window
 
 class ProgressBar:
     """Progress bar widget."""
-    def __init__(self, outer: Image, inner: Image, x: int, y: int, infinite: bool = False):
+
+    def __init__(self, window: Window, x: int, y: int, outer: Image, inner: Image, border: int = 1):
         """Initialize progress bar.
 
         :param Image outer: The progress bar outer image.
@@ -24,10 +25,15 @@ class ProgressBar:
         """
         self.outer: Image = outer
         self.inner: Image = inner
-        self.infinite: bool = infinite
+        self.border: int = border
         self.x: int = x
         self.y: int = y
         self.state: float = 0
+
+    def __del__(self):
+        self.window.clear()
+        self.window.reload()
+        self.window.refresh()
 
     def update(self):
         """
@@ -36,18 +42,25 @@ class ProgressBar:
         @return: self
         """
         self.state += 1
-        return self
+        return self.show()
 
-    def show(self, window: Window):
+    def available(self):
+        """
+        Check if there is available progression.
+        """
+        return self.state < (self.outer.width - self.border * 2) - self.inner.width
+
+    def show(self):
         """
         Show progress bar.
 
-        @param window: Window
         @return: self
         """
-        window.load_image(self.outer, (self.x, self.y))
-        window.load_image(self.inner, (self.x + 1 + self.state, self.y))
-        window.refresh()
-        if window.check_close():
+        self.window.load_image(self.outer, (self.x, self.y))
+        for state in range(self.state):
+            x_position = self.x - self.outer.width / 2 + self.inner.width / 2 + self.border + state
+            self.window.load_image(self.inner, (x_position, self.y))
+        self.window.refresh()
+        if self.window.check_close():
             sys.exit(1)
         return self
