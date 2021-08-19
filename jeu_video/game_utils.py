@@ -57,10 +57,23 @@ class Window:
                          center_coords(position, image, self))
 
     def check_close(self):
-        for event in pygame.event.get():
+        for event in self.events():
             if event.type == QUIT:
                 return True
         return False
+    
+    def clear(self):
+        self.window.fill((0, 0, 0))
+
+    def reload(self):
+        if self.bg:
+            self.bgfill(self.bg)
+        for image in self.images:
+            print(image[0])
+            self.load_image(image[0], image[1])
+
+    def events(self):
+        return pygame.event.get()
 
     def main_loop(self):
         main_loop = True
@@ -68,20 +81,27 @@ class Window:
         while main_loop:
             print("loop")
             main_loop = not self.check_close()
-            if self.bg:
-                self.bgfill(self.bg)
-            for image in self.images:
-                print(image[0])
-                self.load_image(image[0], image[1])
+            self.reload()
             self.refresh()
 
 
 class Image:
+    """
+    Base class for images.
+    """
     def __init__(self, path):
         self.path = path
         self.image = pygame.image.load(path).convert_alpha()
+        self.size = self.image.get_size()
+        self.width = self.size[0]
+        self.height = self.size[1]
 
-    def get(self):
+    def get(self) -> pygame.Surface:
+        """
+        Get pygame surface.
+
+        @return: pygame.Surface
+        """
         return self.image
 
     def __str__(self):
