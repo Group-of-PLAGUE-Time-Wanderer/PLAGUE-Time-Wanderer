@@ -7,7 +7,7 @@ All the widgets for the game.
 """
 import sys
 import pygame
-from game_utils import Image, Window
+from game_utils import Image, Window, center_coords
 
 function_type = type(sys.exit)
 
@@ -99,6 +99,7 @@ class Button(Widget):
         for event in self.window.events():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 print(f"Click: {event.pos}")
+                print(f"Center: {event.pos[0] - (self.window.width / 2)}, {event.pos[1] - (self.window.height / 2)}")
 
     def show(self):
         self.window.load_image(self.image, (self.x, self.y))
