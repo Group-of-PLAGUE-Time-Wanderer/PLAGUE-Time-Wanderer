@@ -10,3 +10,5 @@ log4.txt
 .venv/
 # Directory
 .directory
+# Setup
+setup-env/
