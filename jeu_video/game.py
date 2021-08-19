@@ -48,8 +48,10 @@ while progress.available():
     progress.update()
 del progress
 button.show()
-while True:
+while not main_window.check_close():
+    main_window.reload()
     button.events()
+    time.sleep(1)
 
 main_window.main_loop()
 
