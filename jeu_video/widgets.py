@@ -7,7 +7,7 @@ All the widgets for the game.
 """
 import sys
 import pygame
-from game_utils import Image, Window, center_coords
+from jeu_video.game_utils import Image, Window, center_coords
 
 function_type = type(sys.exit)
 

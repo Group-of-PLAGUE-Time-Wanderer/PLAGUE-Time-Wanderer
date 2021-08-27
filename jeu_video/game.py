@@ -5,8 +5,8 @@ PLAGUE: Time Wanderer
 Python Video Game.
 """
 import pygame
-import game_utils
-import widgets
+import jeu_video.game_utils as game_utils
+import jeu_video.widgets as widgets
 import sentry_sdk  # Sentry bug tracking
 import time
 
@@ -20,39 +20,46 @@ sentry_sdk.init(
 )
 pygame.init()
 
-main_window = game_utils.Window(
-    1000, 700, "PLAGUE: Time Wanderer", "images/icon.png")
 
-bgcolor = (52, 51, 67)  # couleur de fond
+def main():
+    """Main function of game."""
+    main_window = game_utils.Window(
+        1000, 700, "PLAGUE: Time Wanderer", "jeu_video/images/icon.png")
 
-progress = game_utils.Image("images/Progress.png")
-progressed = game_utils.Image("images/progressed.png")
-progress = widgets.ProgressBar(main_window, 0, 200, progress, progressed, 18)
-main_window.bgfill(bgcolor)
-progress.update()
-splash = game_utils.Image("images/splash.png")  # splash screen au démarrage
-progress.update()
-launch_button = game_utils.Image("images/launch_button.png")
-progress.update()
-main_window.add_image(splash, (0, 0))  # afficher le splash screen
-progress.update()
-button = widgets.Button(main_window, 0, 250, launch_button)
-progress.update()
-def click():
-    print("click")
-progress.update()
-button.onclick(click)
-progress.update()
-while progress.available():
-    time.sleep(0.01)
+    bgcolor = (52, 51, 67)  # couleur de fond
+
+    progress = game_utils.Image("jeu_video/images/Progress.png")
+    progressed = game_utils.Image("jeu_video/images/progressed.png")
+    progress = widgets.ProgressBar(main_window, 0, 200, progress, progressed, 18)
+    main_window.bgfill(bgcolor)
     progress.update()
-del progress
-button.show()
-while not main_window.check_close():
-    main_window.reload()
-    button.events()
-    time.sleep(1)
+    splash = game_utils.Image("jeu_video/images/splash.png")  # splash screen au démarrage
+    progress.update()
+    launch_button = game_utils.Image("jeu_video/images/launch_button.png")
+    progress.update()
+    main_window.add_image(splash, (0, 0))  # afficher le splash screen
+    progress.update()
+    button = widgets.Button(main_window, 0, 250, launch_button)
+    progress.update()
+    def click():
+        print("click")
+    progress.update()
+    button.onclick(click)
+    progress.update()
+    while progress.available():
+        time.sleep(0.01)
+        progress.update()
+    del progress
+    button.show()
+    while not main_window.check_close():
+        main_window.reload()
+        button.events()
+        time.sleep(1)
 
-main_window.main_loop()
+    main_window.main_loop()
 
-exit(0)
+    exit(0)
+
+
+if __name__ == '__main__':
+    main()
