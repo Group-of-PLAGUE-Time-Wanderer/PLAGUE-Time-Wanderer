@@ -13,6 +13,7 @@ import glob
 import zipfile
 import tarfile
 import platform
+import shutil
 from urllib.request import urlopen, Request
 
 try:
