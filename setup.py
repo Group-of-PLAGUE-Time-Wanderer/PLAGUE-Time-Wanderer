@@ -15,6 +15,13 @@ import tarfile
 import platform
 from urllib.request import urlopen, Request
 
+try:
+    shutil.rmtree("setup-env")
+except FileNotFoundError:
+    pass
+os.mkdir("setup-env")
+os.chdir("setup-env")
+
 
 def load_requirements(requirements):
     """Load requirements."""
@@ -70,9 +77,6 @@ def detect_pip(python):
     if test != 0:
         print("/!\\ Failed to install pip.")
         stop()
-
-def clean():
-
 
 
 def install_requirements(requirements, python):
@@ -149,7 +153,6 @@ def install(requirements):
     """Install Plague."""
     python = detect_python()
     detect_pip(python)
-    clean()
     install_requirements(requirements, python)
     install_plague(python)
 
