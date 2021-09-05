@@ -136,7 +136,7 @@ def setup(app, github, requirements):
         print(f"Installing: {app}...", end=" ", flush=True)
         if system == "Linux":
             with open(f"/usr/bin/{app.replace(' ', '-')}", "w") as file:
-                file.write(f"#!/usr/bin/sh\ncd \"/usr/lib/{app}/{github.split('/')[4]}-main/\"\n" + python + " start.py")
+                file.write(f"#!/usr/bin/sh\ncd \"/usr/lib/{app}/{github.split('/')[4]}-main/\"\n" + python + " jeu_video/game.py")
                 st = os.stat(f"/usr/bin/{app.replace(' ', '-')}")
                 os.chmod(f"/usr/bin/{app.replace(' ', '-')}", st.st_mode | stat.S_IEXEC)
         elif system == "Windows":
