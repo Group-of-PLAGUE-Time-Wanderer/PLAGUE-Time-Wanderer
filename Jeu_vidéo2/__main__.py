@@ -1,5 +1,8 @@
 #!/usr/bin/python
 # coding: utf-8
+import os
+os.chdir("Jeu_vidéo2")
+print(os.getcwd())
 from config import *
 from time import sleep
 import loadutils as load_util
