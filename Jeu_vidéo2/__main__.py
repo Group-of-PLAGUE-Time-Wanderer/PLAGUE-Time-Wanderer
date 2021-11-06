@@ -3,7 +3,7 @@
 from config import *
 from time import sleep
 import loadutils as load_util
-from assets.objects import objects
+import objects
 
 pygame.init()
 
@@ -22,10 +22,10 @@ step = loading_bar.incrementfromstep
 
 loading_bar.update()
 step()
-splash = load("assets/objects/assets/splash.png")
+splash = load("assets/splash.png")
 splash_pos = calccenter(splash)
 step()
-start_button = load("assets/objects/assets/launch_button.png")
+start_button = load("assets/launch_button.png")
 start_button = pygame.transform.scale(start_button, (400, 400))
 launch_rect = start_button.get_rect()
 launch_rect.x = calccenter(start_button)[0]
