@@ -6,21 +6,21 @@ from config import *
 class GravitySprite(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.xvel = 0
-        self.yvel = 0
+        self.x_vel = 0
+        self.y_vel = 0
         self.speed = 10
         self.image = load("assets/placeholder.bmp")
         self.rect = self.image.get_rect()
         self.controls = None
         self.gravity = gravity
-        self.collidewith = pygame.sprite.Group()
-        self.canjump = False
+        self.collide_with = pygame.sprite.Group()
+        self.can_jump = False
         self.jump_power = None
 
     def move(self, direction):
-        if direction == "up" and self.canjump:
-            self.yvel += self.jump_power
-            self.canjump = False
+        if direction == "up" and self.can_jump:
+            self.y_vel += self.jump_power
+            self.can_jump = False
         elif direction == "down":
             self.rect.y += self.speed
         elif direction == "left":
@@ -28,7 +28,7 @@ class GravitySprite(pygame.sprite.Sprite):
         elif direction == "right":
             self.rect.x += self.speed
 
-    def automove(self):
+    def auto_move(self):
         for thing in self.controls:
             if control(thing):
                 self.move(thing)
@@ -37,13 +37,13 @@ class GravitySprite(pygame.sprite.Sprite):
         return pygame.sprite.spritecollide(self, group, False)
 
     def update(self):
-        while self.collide(self.collidewith):
-            self.canjump = True
-            self.yvel = 0
+        while self.collide(self.collide_with):
+            self.can_jump = True
+            self.y_vel = 0
             self.rect.y -= 1
 
-        self.automove()
-        self.yvel -= gravity
-        self.rect.y -= self.yvel
+        self.auto_move()
+        self.y_vel -= gravity
+        self.rect.y -= self.y_vel
 
         insert(self.image, self.rect)

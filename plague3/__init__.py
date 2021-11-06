@@ -10,3 +10,4 @@ PLAYGROUUUUUUUUUUUUUUUUUUUUUUUUUUUUUND
 ####################################
 """
 from plague3.assets import assets
+import objects

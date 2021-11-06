@@ -16,11 +16,12 @@ class Window(object):
         pygame.display.set_caption(self.title, self.subtitle)
         pygame.display.set_icon(pygame.image.load(self.icon))
 
-    def add_image(self):
+    @staticmethod
+    def add_image():
         return None
 
     @staticmethod
-    def calccenter(img):
-        scsize = (self.width, self.height)
+    def calc_center(self, img):
+        screen_size = (self.width, self.height)
         isl = img.get().get_size()
-        return round(scsize[0] / 2 - isl[0] / 2), round(scsize[1] / 2 - isl[1] / 2)
+        return round(screen_size[0] / 2 - isl[0] / 2), round(screen_size[1] / 2 - isl[1] / 2)

@@ -1,11 +1,9 @@
 #!/usr/bin/python
 # coding: utf-8
-import os
-os.chdir("Jeu_vidéo2")
-print(os.getcwd())
 from config import *
 from time import sleep
 import loadutils as load_util
+from assets.objects import objects
 
 pygame.init()
 
@@ -19,25 +17,24 @@ loading_bar = load_util.ProgressBar((
     10, 1000
 )
 
-loading_bar.totalsteps = 5
+loading_bar.total_steps = 5
 step = loading_bar.incrementfromstep
 
 loading_bar.update()
-import objects
 step()
-splash = load("assets/splash.png")
-splashpos = calccenter(splash)
+splash = load("assets/objects/assets/splash.png")
+splash_pos = calccenter(splash)
 step()
-start_button = load("assets/launch_button.png")
+start_button = load("assets/objects/assets/launch_button.png")
 start_button = pygame.transform.scale(start_button, (400, 400))
-launchrect = start_button.get_rect()
-launchrect.x = calccenter(start_button)[0]
-launchrect.y = round(window["size"][1]/2 - 150)
+launch_rect = start_button.get_rect()
+launch_rect.x = calccenter(start_button)[0]
+launch_rect.y = round(window["size"][1] / 2 - 150)
 step()
 floor = objects.Floor()
 step()
 player = objects.Player()
-player.collidewith.add(floor)
+player.collide_with.add(floor)
 step()
 sleep(0.1)
 
@@ -50,8 +47,8 @@ main_menu = True
 while running:
     screen.fill((52, 51, 67))
     if main_menu:
-        insert(splash, splashpos)
-        insert(start_button, launchrect)
+        insert(splash, splash_pos)
+        insert(start_button, launch_rect)
     else:
         pass
 
@@ -66,7 +63,7 @@ while running:
             running = False
 
         if e.type == pygame.MOUSEBUTTONDOWN:
-            if launchrect.collidepoint(e.pos) and main_menu:
+            if launch_rect.collidepoint(e.pos) and main_menu:
                 main_menu = False
 
         if e.type == pygame.KEYDOWN:
