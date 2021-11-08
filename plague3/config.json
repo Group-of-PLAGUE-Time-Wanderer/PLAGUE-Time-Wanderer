@@ -1,10 +1,19 @@
 {
-"assets":  {
-    "icon": "assets/images/icon.png",
-    "splash": "assets/images/splash.png",
-    "player": "assets/images/player.bmp"
-    }
-"screen":  {
-    "size": 1
+    "assets": {
+        "icon": "assets/images/icon.png",
+        "splash": "assets/images/splash.png",
+        "player": "assets/images/player.bmp"
+    },
+    "screen": {
+        "size": [1080, 740],
+        "FPS": 60
+    },
+    "player": {
+        "controls": {
+            "up": "space",
+            "down": null,
+            "left": "left",
+            "right": "right"
+        }
     }
 }

@@ -4,7 +4,7 @@
 import pygame
 
 
-class Window(object):
+class NewWindow(object):
     """DAT CLASS WINDOW"""
     def __init__(self, /, icon: str, title: str, subtitle, width: int = 500, height: int = 500):
         self.icon: str = icon
@@ -17,11 +17,11 @@ class Window(object):
         pygame.display.set_icon(pygame.image.load(self.icon))
 
     @staticmethod
-    def add_image():
-        return None
+    def add_image(surface, rect: pygame.rect.Rect):
+        return "Not for now", surface, rect
 
-    @staticmethod
-    def calc_center(self, img):
-        screen_size = (self.width, self.height)
-        isl = img.get().get_size()
-        return round(screen_size[0] / 2 - isl[0] / 2), round(screen_size[1] / 2 - isl[1] / 2)
+#    @staticmethod
+#    def calc_center(self, img):
+#        screen_size = (self.width, self.height)
+#        isl = img.get().get_size()
+#        return round(screen_size[0] / 2 - isl[0] / 2), round(screen_size[1] / 2 - isl[1] / 2)
