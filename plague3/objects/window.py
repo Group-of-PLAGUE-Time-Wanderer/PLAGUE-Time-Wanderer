@@ -3,6 +3,8 @@
 """DAT FILE WINDOW"""
 import pygame
 
+import objects.image
+
 
 class NewWindow(object):
     """DAT CLASS WINDOW"""
@@ -16,9 +18,10 @@ class NewWindow(object):
         pygame.display.set_caption(self.title, self.subtitle)
         pygame.display.set_icon(pygame.image.load(self.icon))
 
-    @staticmethod
-    def add_image(surface, rect: pygame.rect.Rect):
-        return "Not for now", surface, rect
+    def add_image(self, surface: objects.image.Image, rect: pygame.rect.Rect = None):
+        if not rect:
+            rect = surface.rect
+        self.surface.blit(surface.image, rect)
 
 #    @staticmethod
 #    def calc_center(self, img):
