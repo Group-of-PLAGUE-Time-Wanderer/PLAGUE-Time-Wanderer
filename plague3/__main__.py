@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-PLAGUE: Time Wanderer - Version 3.0.1
+PLAGUE: Time Wanderer - Version 3.0.1 DEV
 
 Mix of precedent versions of Plague.
 """
