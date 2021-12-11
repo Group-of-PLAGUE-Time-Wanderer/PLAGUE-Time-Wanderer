@@ -10,10 +10,11 @@
     },
     "player": {
         "controls": {
-            "up": "space",
-            "down": null,
-            "left": "left",
-            "right": "right"
+            "up": "UP",
+            "down": "DOWN",
+            "right": "RIGHT",
+            "left": "LEFT",
+            "jump": "SPACE"
         },
         "speed": {
             "jump": 15,

@@ -159,5 +159,4 @@ def get_key_name(id: int = 0):
     for key_name, ID in keys:
         if ID == id:
             return key_name
-            break
     return 0

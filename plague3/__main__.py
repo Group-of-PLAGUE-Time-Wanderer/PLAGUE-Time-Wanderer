@@ -17,11 +17,17 @@ main_window = objects.window.NewWindow(config["assets"]["icon"], "Plague: Time W
 
 clock = pygame.time.Clock()
 running = True
+current_state = "menu"
 
 while running:
+    # Events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+    # Displaying
+    # Refreshing
+    pygame.display.flip()
 
     clock.tick(config["screen"]["FPS"])
 

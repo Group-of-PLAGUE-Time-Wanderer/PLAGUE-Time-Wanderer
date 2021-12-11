@@ -4,12 +4,11 @@
 Image object
 """
 import pygame
-import objects
 
 
 class Image(pygame.sprite.Sprite):
     """Basic class for importing images."""
-    def __init__(self, window, /, path: str = ""):
+    def __init__(self, window, /, path: str = "assets/images/placeholder.bmp"):
         super().__init__()
         self.window = window
         self.path = path
@@ -20,7 +19,7 @@ class Image(pygame.sprite.Sprite):
     def get(self) -> pygame.Surface:
         return self.image
 
-    def insert(self, surface: objects.window):
+    def insert(self, surface):
         self.window.add_image(surface, self.rect)
 
     def convert_rect(self, convert_to: str):
