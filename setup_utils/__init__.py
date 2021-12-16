@@ -176,7 +176,7 @@ def setup(app, github, requirements):
     print("   ", "\t".join(installed))
     print("Packages to install:")
     print("   ", "\t".join(to_install))
-    continuation = "y"  # input("Continue ? [Y/n] ").lower()
+    continuation = input("Continue ? [Y/n] ").lower()
     if continuation in ("y", "yes", ""):
         install(to_install)
     elif continuation in ("n", "no"):
