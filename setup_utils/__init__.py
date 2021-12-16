@@ -16,6 +16,7 @@ import platform
 import shutil
 from urllib.request import urlopen, Request
 
+
 def setup(app, github, requirements):
     try:
         shutil.rmtree("setup-env")
@@ -36,7 +37,8 @@ def setup(app, github, requirements):
 
     def download(url, destination):
         if not url.startswith("http"):
-            raise RuntimeError("Incorrect and possibly insecure protocol in url")
+            raise RuntimeError(
+                "Incorrect and possibly insecure protocol in url")
         httprequest = Request(url)
         response = urlopen(httprequest)
         with open(destination, 'wb') as destination:
@@ -66,7 +68,8 @@ def setup(app, github, requirements):
         print("Done.")
         if test == 0:
             return
-        print("Downloading: https://bootstrap.pypa.io/get-pip.py...", end=" ", flush=True)
+        print("Downloading: https://bootstrap.pypa.io/get-pip.py...",
+              end=" ", flush=True)
         download("https://bootstrap.pypa.io/get-pip.py", "get-pip.py")
         print("Done.")
         print("Installing: pip...", end=" ", flush=True)
@@ -79,9 +82,11 @@ def setup(app, github, requirements):
     def install_requirements(requirements, python):
         """Install missing requirements."""
         for requirement in requirements:
-            print("Downloading: https://pypi.org/simple/{0}/...".format(requirement), end=" ", flush=True)
+            print(
+                "Downloading: https://pypi.org/simple/{0}/...".format(requirement), end=" ", flush=True)
             for retry in range(3):
-                test = os.system(python + " -m pip download --prefer-binary " + requirement + " > " + os.devnull)
+                test = os.system(
+                    python + " -m pip download --prefer-binary " + requirement + " > " + os.devnull)
                 if test == 0:
                     break
                 if retry == 0:
@@ -93,12 +98,13 @@ def setup(app, github, requirements):
             print("Done.")
         for wheel in glob.glob("*.whl"):
             print("Installing:", wheel + "...", end=" ", flush=True)
-            test = os.system(python + " -m pip install --no-dependencies " + wheel + " > " + os.devnull)
+            test = os.system(
+                python + " -m pip install --no-dependencies " + wheel + " > " + os.devnull)
             if test != 0:
                 print("\n/!\\ Failed to install", wheel)
             print("Done.")
         for targz in glob.glob("*.tar.gz"):
-            print("Unpacking:" , targz + "...", end=" ", flush=True)
+            print("Unpacking:", targz + "...", end=" ", flush=True)
             file = tarfile.open(targz)
             file.extractall(path="./setup-{0}/".format(targz[:-7]))
             file.close()
@@ -136,12 +142,15 @@ def setup(app, github, requirements):
         print(f"Installing: {app}...", end=" ", flush=True)
         if system == "Linux":
             with open(f"/usr/bin/{app.replace(' ', '-')}", "w") as file:
-                file.write(f"#!/usr/bin/sh\ncd \"/usr/lib/{app}/{github.split('/')[4]}-main/\"\n" + python + " jeu_video/game.py")
+                file.write(
+                    f"#!/usr/bin/sh\ncd \"/usr/lib/{app}/{github.split('/')[4]}-main/\"\n" + python + " jeu_video/game.py")
                 st = os.stat(f"/usr/bin/{app.replace(' ', '-')}")
-                os.chmod(f"/usr/bin/{app.replace(' ', '-')}", st.st_mode | stat.S_IEXEC)
+                os.chmod(f"/usr/bin/{app.replace(' ', '-')}",
+                         st.st_mode | stat.S_IEXEC)
         elif system == "Windows":
             with open("C:/Program Files (x86)/Crocrodile/plague.bat") as file:
-                file.write("cd C:/Program Files (x86)/PLAGUE Time Wanderer/PLAGUE-Time-Wanderer-main/\n" + python + " start.py")
+                file.write(
+                    "cd C:/Program Files (x86)/PLAGUE Time Wanderer/PLAGUE-Time-Wanderer-main/\n" + python + " start.py")
         print("Done.")
 
     def install(requirements):
@@ -167,7 +176,7 @@ def setup(app, github, requirements):
     print("   ", "\t".join(installed))
     print("Packages to install:")
     print("   ", "\t".join(to_install))
-    continuation = input("Continue ? [Y/n] ").lower()
+    continuation = "y"  # input("Continue ? [Y/n] ").lower()
     if continuation in ("y", "yes", ""):
         install(to_install)
     elif continuation in ("n", "no"):
