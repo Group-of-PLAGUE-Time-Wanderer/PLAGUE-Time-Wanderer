@@ -14,3 +14,5 @@ log4.txt
 setup-env/
 # pyc files
 *.pyc
+# Discord secrets
+discord/conf.json
