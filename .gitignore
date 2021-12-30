@@ -12,3 +12,5 @@ log4.txt
 .directory
 # Setup
 setup-env/
+# pyc files
+*.pyc
