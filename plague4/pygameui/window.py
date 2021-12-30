@@ -6,15 +6,17 @@ Base window object for Plague v0.4.
 """
 import pygame
 
+from pygameui.objects import Image
+
 
 class Window(object):
     """Window object."""
 
-    def __init__(self, /, icon: str, title: str, subtitle: str, width: int = 500, height: int = 500):
+    def __init__(self, /, icon: Image, title: str, subtitle: str, width: int = 500, height: int = 500):
         """Create a new window.
 
         Args:
-            icon (str): Path to icon file.
+            icon (Image): Path to icon file.
             title (str): Window title.
             subtitle (str): Window subtitle.
             width (int, optional): Width of the window.. Defaults to 500.
@@ -28,4 +30,4 @@ class Window(object):
         self.surface: pygame.Surface = pygame.display.set_mode(
             (self.width, self.height))
         pygame.display.set_caption(self.title, self.subtitle)
-        pygame.display.set_icon(pygame.image.load(self.icon))
+        pygame.display.set_icon(icon.get())
