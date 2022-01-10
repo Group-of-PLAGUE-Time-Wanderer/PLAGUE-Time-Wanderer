@@ -1,6 +1,15 @@
 Plague - Time wanderer
 ======================
 
+We are in 1349, it's the plague crisis in Europa, at Paris and we have a card of this one. The main personage desn't remember anything (he doesn't have a name) and he has two superpowers :
+- He can **time jump**
+- He can **teleport himself** using a necklace with an unknow origin. To do this he needs to throw **money piece**.
+
+**The main enemy is a catholic organization directed by the king's bishop. This organization wants to take the hero to destroy black plague.**
+
+*The first level will be in Paris' underground*
+
+
 Le jeu se déroule en 1349 soit en pleine crise de la peste noire en Europe, à Paris et nous serons dotés d'une carte de cette dernière de l'époque. Le personnage principal est amnésique (donc il n'a pas de nom) est possède deux pouvoir distincts:
 - Le premier est celui de pouvoir faire **des bonds temporels de plusieurs jours et semaines** (*les bonds seront scénarisés dans le jeu*)
 - Le second peut être réalisé **à l'aide d'un collier** de provenance inconnue (*au fur et à mesure que le jeu avancera le personnage se rappellera petit à petit de sa vie et donc de la provenance du collier*), et peut **lancer des pièces en cuivre ou en or qui lui permettront de se téléporter**. Il ne peut pas sauter mais par contre il peut grimper aux murs. 
