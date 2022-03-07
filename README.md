@@ -2,23 +2,24 @@
 
 ## 🇬🇧 English
 
-We are in 1349, it's the plague crisis in Europa, at Paris and we have a card of this one. The main personage desn't remember anything (he doesn't have a name) and he has two superpowers :
-- He can **time jump**
-- He can **teleport himself** using a necklace with an unknow origin. To do this he needs to throw **money piece**.
+We are in 1349, it's the black plague crisis in Europe, in Paris with a map. The main character has amnesia and desn't remember anything (he doesn't even have a name) but he'll discover has two superpowers :
+- He can first **jump travel from days to weeks**
+- He can also **teleport himself** using a necklace from an unknown origin, and to do this he needs to throw **coin**.
 
-**The main enemy is a catholic organization directed by the king's bishop. This organization wants to take the hero to destroy black plague.**
+**The main enemy is a catholic organization directed by the king's bishop. This organization wants to kidnap our hero because they think he couldget rid of the black plague.**
 
 *The first level will be in Paris' underground*
 
 ### Biography
 
-> The personage comes from a respected family of noble alchemists with her two brothers. He has a magic necklace from his dead father.
-> A day, he discovered a fabulous formula.
-> His potion was rejected and he goes on a boat. But a sailor stole the necklace to give it to the king to cure a mysterious sickness named :
+> The character comes from a respected family of noble alchemists with his two brothers. He has a magic necklace from his beloved dead father.
+> A day, he discovered a fabulous formula to... well, we don't know.
+> The family laugh at him and said that's just impossible, so he went on a boat to Europe to promote his invention.
+> But a sailor stole his necklace to give it to the king to cure a mysterious disease named
 
-### Plague
+### The Plague
 
-> The personnage is now amnesic in Paris' underground, and a beggar stole all his money.
+> The personnage is now amnesic in Paris' underground, and a beggar stole all his money and his potion.
 > He regain his necklace but some jewerly are still missing...
 
 ## 🇫🇷 Français
