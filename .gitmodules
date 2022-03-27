@@ -1,0 +1,3 @@
+[submodule "plague4/pygameui"]
+	path = plague4/pygameui
+	url = git@github.com:Group-of-PLAGUE-Time-Wanderer/pygameui
