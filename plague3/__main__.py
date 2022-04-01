@@ -19,6 +19,8 @@ clock = pygame.time.Clock()
 running = True
 current_state = "menu"
 
+player = objects.object.Entity(main_window, 10)
+
 while running:
     # Events
     for event in pygame.event.get():
@@ -28,6 +30,8 @@ while running:
     # Displaying
     # Refreshing
     pygame.display.flip()
+
+
 
     clock.tick(config["screen"]["FPS"])
 

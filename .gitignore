@@ -13,7 +13,7 @@ venv/
 .directory
 # Setup
 setup-env/
-# pyc files
+# Temporary files
 *.pyc
 # Discord secrets
 discord/conf.json
